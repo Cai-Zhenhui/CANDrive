@@ -2,7 +2,7 @@
 #include <memory.h>
 
 #ifdef _M_IX86
-#pragma comment(lib,"./drive/zlg/LIB/zlgcan.lib")
+#pragma comment(lib,"./drive/zlg/LIB/x86/zlgcan.lib")
 #endif // _M_IX86
 
 #ifdef _M_X64

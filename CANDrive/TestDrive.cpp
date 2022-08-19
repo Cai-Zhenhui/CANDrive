@@ -6,8 +6,10 @@
 #include "CANDriveZLG.h"
 using namespace std;
 
-// 测试通过
-// x86 x64
+// Debug x86 测试通过
+// Debug x64 测试通过
+// Release x86 测试通过
+// Release x64 测试通过
 void testKvaser() {
 	bool isExit = false;
 	char ch;
@@ -33,8 +35,11 @@ void testKvaser() {
 
 
 	Message msg;
-	CAN->openDevice();
-	CAN->openChannel(0, CANDRIVE_BITRATE_500K);
+	cout << "开始测试Kvaser：\n";
+	auto ret = CAN->openDevice();
+	cout << "打开设备：" << ret << endl;
+	ret = CAN->openChannel(0, CANDRIVE_BITRATE_500K);
+	cout << "打开通道：" << ret << endl;
 
 	thread th(func);
 	while (!isExit) {
@@ -57,8 +62,10 @@ void testKvaser() {
 	CAN->closeDevice();
 }
 
-// 测试通过
-// x86 x64
+// Debug x86 测试通过
+// Debug x64 测试通过
+// Release x86 测试通过
+// Release x64 测试通过
 void testZLG() {
 	bool isExit = false;
 	char ch;
@@ -84,8 +91,11 @@ void testZLG() {
 
 
 	Message msg;
-	CAN->openDevice();
-	CAN->openChannel(0, CANDRIVE_BITRATE_500K);
+	cout << "开始测试ZLG：\n";
+	auto ret = CAN->openDevice();
+	cout << "打开设备：" << ret << endl;
+	ret = CAN->openChannel(0, CANDRIVE_BITRATE_500K);
+	cout << "打开通道：" << ret << endl;
 
 	thread th(func);
 	while (!isExit) {
@@ -109,7 +119,7 @@ void testZLG() {
 }
 
 int main() {
-	testZLG();
-	//testKvaser();
+	//testZLG();
+	testKvaser();
 	return 0;
 }

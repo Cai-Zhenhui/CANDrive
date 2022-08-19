@@ -30,4 +30,9 @@
 *.exe
 *.out
 *.app
-/.vs/
+
+# 排除掉本地生成文件
+.vs
+x64
+Debug
+Release
